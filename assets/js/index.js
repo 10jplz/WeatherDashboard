@@ -11,6 +11,7 @@ currInfo();
 
 function searchNow () {
     cityName = $(".searchCity").val();
+    cityArray.push(cityName);
     localStorage.setItem("City", [cityName]);
     currInfo();
     renderButtons();
@@ -103,7 +104,7 @@ function renderButtons() {
     let buttonDiv = $("<div class='row border search'>");
 
     button.text(newCity);
-    button.addClass("previous btn btn-block cursor:pointer ");
+    button.addClass("previous btn btn-block ");
     button.attr("role", "button");
     button.attr("data-city", newCity);
     buttonDiv.append(button);
@@ -114,8 +115,7 @@ function renderButtons() {
         let btnCity = $(this).attr("data-city");
         cityName = btnCity;
         cityArray.push(cityName);
-        localStorage.setItem("cityArray1", JSON.stringify(cityArray));
+        localStorage.setItem("City", [cityArray]);
         currInfo();
-
     });
 }
